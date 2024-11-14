@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+}
+
+body {
+  background: rgba(0, 0, 0, 0.5) url("../Assets/img/kotak.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-blend-mode: darken;
+}
+
+.sign-in.section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sign-in.section .logo-img {
+  padding: 40px 0px 0px 40px;
+}
+
+/* Bagian Kanan */
+.login-content {
+  background-color: #124076;
+  height: 100vh;
+  width: 45%;
+  border-radius: 1rem 0 0 1rem;
+}
+
+.login-container {
+  text-align: center;
+  color: #fff;
+  padding: 150px 0px 0px 0px;
+}
+
+.login-container .login-welcome h1 {
+  font-size: 2rem;
+}
+
+.login-container .login-welcome p {
+  margin-top: 1rem;
+  margin-bottom: 5rem;
+  font-size: 1.3rem;
+}
+
+.login-content .login-container input {
+  padding-right: 20rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid #e3f2fd;
+}
+
+.login-content .login-container .options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 10px auto 0;
+}
+
+.login-content .login-container .options a {
+  color: #fff;
+}
+
+.login-content .login-container .btn-submit {
+  margin-top: 3rem;
+  padding-right: 10rem;
+  padding-left: 10rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-radius: 0.3rem;
+  border: 1px solid #e3f2fd;
+}
+
+.login-content .login-container .sign-up.btn {
+  margin-top: 10rem;
+}
+
+.login-content .login-container .sign-up.btn a {
+  color: #5ea8ff;
+  list-style: none;
+  text-decoration: none;
+}

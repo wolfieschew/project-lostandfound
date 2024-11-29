@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign-up</title>
+    <title>Sign-Up</title>
     <link rel="stylesheet" href="style/sign-up.css" />
     <!-- Google Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,55 +35,108 @@
           <div class="login-container">
             <div class="login-welcome">
               <h1>Sign Up</h1>
-              <p>Let's get started with, creating your account</p>
+              <p>Let's get started with creating your new account.</p>
             </div>
-            <form>
+            <form
+              action="process_register.php"
+              method="POST"
+              onsubmit="return validateForm()"
+            >
+              <!-- Email -->
               <input
+                class="input-field"
                 type="email"
+                name="email"
+                id="email"
                 placeholder="Enter your Email"
                 required
-              /><br />
+              />
+              <br />
+              <!-- Password -->
               <input
+                class="input-field"
                 type="password"
+                name="password"
+                id="password"
                 placeholder="Enter your Password"
                 required
               />
+              <br />
+              <!-- Confirm Password -->
               <input
-                type="re-password"
-                placeholder="Re - Enter your Password"
+                class="input-field"
+                type="password"
+                name="confirm_password"
+                id="confirm_password"
+                placeholder="Re-enter your Password"
                 required
               />
-              <input type="name" placeholder="Enter your first name" required />
+              <br />
+              <!-- First Name -->
               <input
-                type="name"
-                placeholder="Enter your last name"
+                class="input-field"
+                type="text"
+                name="first_name"
+                id="first_name"
+                placeholder="Enter your First Name"
                 required
-              /><br />
-
-              <div class="phn-btn">
-                <i class="bx bxs-phone"></i>
-                <input
-                  class="phone-input"
-                  type="tel"
-                  class="phone-input"
-                  placeholder="Example : +62-852-xxxx"
-                />
-              </div>
+              />
+              <br />
+              <!-- Last Name -->
+              <input
+                class="input-field"
+                type="text"
+                name="last_name"
+                id="last_name"
+                placeholder="Enter your Last Name"
+                required
+              />
+              <br />
+              <!-- Phone -->
+              <input
+                class="input-field"
+                type="text"
+                name="phone"
+                id="phone"
+                placeholder="Example +62 852xxxx"
+                required
+              />
+              <br />
+              <!-- Terms and Conditions -->
               <div class="options">
                 <label>
-                  <input type="checkbox" /> i agree the lost and found items
-                  terms
+                  <input type="checkbox" style="cursor: pointer" required /> I
+                  agree to the Lost and Found items terms
                 </label>
               </div>
-              <button class="btn-submit" type="submit">
-                Create an account
+              <!-- Submit Button -->
+              <button class="btn-submit" type="submit" style="cursor: pointer">
+                Sign Up
               </button>
             </form>
+            <div class="sign-up btn">
+              <p>
+                Already have an account?
+                <a href="log_in.html" style="cursor: pointer">Log in here</a>
+              </p>
+            </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- Boostrap JS -->
-    <!--  -->
+    <!-- Password Validation -->
+    <script>
+      function validateForm() {
+        var password = document.getElementById("password").value;
+        var confirm_password =
+          document.getElementById("confirm_password").value;
+
+        if (password !== confirm_password) {
+          alert("Password dan Konfirmasi Password tidak cocok!");
+          return false; // Menghentikan pengiriman formulir
+        }
+        return true; // Melanjutkan pengiriman formulir
+      }
+    </script>
   </body>
 </html>

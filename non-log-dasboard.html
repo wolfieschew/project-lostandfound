@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lost and Found Items Project</title>
+    <title>welcome-page-#2</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="style/non-log-dasboard.css" />
-    <!-- BOX ICONS -->
+    <!-- Boxicons CSS -->
     <link
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-
-    <!-- Google Icons -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,34 +20,36 @@
     />
   </head>
   <body>
-    <!-- header start -->
+    <!-- Header Section -->
     <header>
-      <div class="navbar">
-        <div class="nav-bar">
-          <img src="Assets/img/lostnfoundlogo.png" height="55px" />
+      <nav>
+        <div class="logo">
+          <img src="Assets/img/lostnfoundlogo.png" height="70px" />
         </div>
-        <div class="nav-button">
-          <button onclick="penggunaLogin()" class="log-in" type="submit">
-            Log In
-          </button>
-          <button class="sign-in" type="submit">Sign in</button>
+        <ul id="menuList">
+          <li><a class="login-btn" href="log_in.html">Log in</a></li>
+          <li><a class="sign-up btn" href="sign-up.html">Sign Up</a></li>
+        </ul>
+        <div class="menu-icon">
+          <i class="bx bx-menu" onclick="toggleMenu()"></i>
         </div>
-      </div>
+      </nav>
     </header>
-    <!-- header end -->
-    <!-- search section start -->
+    <!-- Header Section -->
+
+    <!-- Search Section -->
     <section>
       <div class="search-content">
         <div class="search-bar">
           <select id="btn-first" class="btn-list">
-            <option></option>
+            <option>Kategori Pelaporan</option>
             <option value="">Elektronik</option>
             <option value="">Buku & Elektronik</option>
             <option value="">Aksesori Pribadi</option>
             <option value="">Peralatan Khusus</option>
           </select>
           <select class="btn-list">
-            <option></option>
+            <option>Kategori Barang</option>
             <option value="">Barang Hilang</option>
             <option value="">Barang Ditemukan</option>
             <option value="">Barang Informasi Barang</option>
@@ -57,8 +59,9 @@
         <p>Example : <span>KTM, Dompet, Kunci Motor, Jam Tangan</span></p>
       </div>
     </section>
-    <!-- search section end -->
-    <!-- card section -->
+    <!-- Search Section -->
+
+    <!-- Report List Section -->
     <section>
       <div class="card-container">
         <div class="card-content">
@@ -150,26 +153,9 @@
         </div>
       </div>
     </section>
-    <!-- advice section start -->
-    <section></section>
-    <!-- advice section end -->
-    <!-- suggest section start -->
-    <section>
-      <div class="suggest-main">
-        <div class="suggest-container">
-          <h3>
-            Daftarkan barang berharga Anda dengan Barang Hilang dan
-            Ditemukan.<br />
-            Sehingga Anda dapat mulai mencari sejak Anda kehilangan sesuatu.
-          </h3>
-        </div>
-        <div class="suggest-btn">
-          <button type="submit">Daftar Sekarang</button>
-        </div>
-      </div>
-    </section>
-    <!-- sugest section end -->
-    <!-- report section start -->
+    <!-- Report List  Section -->
+
+    <!-- Report Section -->
     <section>
       <div class="report-main">
         <div class="report">
@@ -178,17 +164,22 @@
           </div>
           <div class="report-section">
             <div class="report-btn">
-              <button type="submit">Saya Telah Kehilangan</button>
+              <a href="log_in.html"
+                ><button type="submit">Saya Telah Kehilangan</button></a
+              >
             </div>
             <div class="report-btn">
-              <button type="submit">Saya Telah Menemukan</button>
+              <a href="log_in.html"
+                ><button type="submit">Saya Telah Menemukan</button></a
+              >
             </div>
           </div>
         </div>
       </div>
     </section>
-    <!-- report section end -->
-    <!-- footer section star -->
+    <!-- Report Section -->
+
+    <!-- Footer Section -->
     <section>
       <div class="footer">
         <div class="footer-main">
@@ -216,8 +207,24 @@
         </div>
       </div>
     </section>
-    <!-- footer section end -->
-    <!-- JS -->
-    <script src="script/script.js"></script>
+    <!-- Footer Section -->
+
+    <script>
+      let menuList = document.getElementById("menuList");
+      menuList.style.maxHeight = "0px";
+
+      function toggleMenu() {
+        if (menuList.style.maxHeight == "0px") {
+          menuList.style.maxHeight = "300px";
+        } else {
+          menuList.style.maxHeight = "0px";
+        }
+      }
+    </script>
+
+    <script
+      src="https://kit.fontawesome.com/f8e1a90484.js"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

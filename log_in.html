@@ -17,8 +17,6 @@
       href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
       rel="stylesheet"
     />
-    <!-- Boostrap CSS -->
-    <!--  -->
   </head>
   <body>
     <section>
@@ -37,26 +35,43 @@
               <h1>Welcome</h1>
               <p>Welcome to Lost and Found Items. Find your lost items here.</p>
             </div>
-            <form>
-              <input type="email" placeholder="Enter your Email" required />
+            <form action="process_login.php" method="post">
+              <input
+                class="input-field"
+                name="email"
+                id="email"
+                type="text"
+                placeholder="Enter your Email"
+                required
+              />
               <br />
               <div class="pwd-btn">
                 <input
-                  class="password-input"
+                  class="input-field"
+                  name="password"
+                  id="password"
                   type="password"
                   placeholder="Enter your Password"
                   required
                 />
-                <i class="bx bx-low-vision"></i>
+                <!-- <i class="bx bx-low-vision"></i> -->
               </div>
               <div class="options">
-                <label> <input type="checkbox" /> Remember me </label>
-                <a href="#">Forgot password</a>
+                <label
+                  ><input type="checkbox" style="cursor: pointer" />remember
+                  me</label
+                >
+                <a href="forgot_password.html">Forgot password</a>
               </div>
-              <button class="btn-submit" type="submit">Sign in</button>
+              <button class="btn-submit" type="submit" style="cursor: pointer">
+                Sign in
+              </button>
             </form>
             <div class="sign-up btn">
-              <p>Don't have an account? <a href="#">Sign up here</a></p>
+              <p>
+                Don't have an account?
+                <a href="sign-up.html" style="cursor: pointer">Sign up here</a>
+              </p>
             </div>
           </div>
         </div>

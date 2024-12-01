@@ -38,23 +38,31 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
         />
         <ul class="mt-6 space-y-2">
           <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Dashboard</a>
+            <a href="admin_dashboard.php" class="block px-4 py-2 hover:bg-gray-700">Dashboard</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Items Lost</a>
+            <a href="admin_items_lost.html" class="block px-4 py-2 hover:bg-gray-700">Items Lost</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-700"
+            <a href="admin_items_found.html" class="block px-4 py-2 hover:bg-gray-700"
               >Items Found</a
             >
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Users</a>
+            <a href="admin_users.html" class="block px-4 py-2 hover:bg-gray-700">Users</a>
           </li>
           <li>
-            <a href="#" class="block px-4 py-2 hover:bg-gray-700">Settings</a>
+            <a href="admin_settings.html" class="block px-4 py-2 hover:bg-gray-700">Settings</a>
           </li>
         </ul>
+        <!-- Logout Button -->
+        <div class="mt-6">
+          <a
+            href="admin_logout.php"
+            class="block px-4 py-2 text-red-500 hover:bg-gray-700 hover:text-white"
+            >Logout</a
+          >
+        </div>
       </div>
 
       <!-- Main Content -->
@@ -65,17 +73,17 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
             <!-- Lost Items -->
             <div class="bg-blue-100 p-4 rounded-lg shadow-md">
               <h3 class="text-lg font-semibold">Lost Items</h3>
-              <p class="text-xl font-bold">120</p>
+              <p class="text-xl font-bold">0</p>
             </div>
             <!-- Found Items -->
             <div class="bg-green-100 p-4 rounded-lg shadow-md">
               <h3 class="text-lg font-semibold">Found Items</h3>
-              <p class="text-xl font-bold">85</p>
+              <p class="text-xl font-bold">0</p>
             </div>
             <!-- Users -->
             <div class="bg-yellow-100 p-4 rounded-lg shadow-md">
               <h3 class="text-lg font-semibold">Registered Users</h3>
-              <p class="text-xl font-bold">200</p>
+              <p class="text-xl font-bold">0</p>
             </div>
           </div>
         </div>
@@ -83,34 +91,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
         <div class="mt-6 bg-white rounded-lg shadow-lg p-6">
           <h2 class="text-2xl font-semibold mb-4">Recent Activity</h2>
           <table class="min-w-full table-auto">
-            <thead>
-              <tr>
-                <th class="px-4 py-2 text-left">Item Name</th>
-                <th class="px-4 py-2 text-left">Category</th>
-                <th class="px-4 py-2 text-left">Status</th>
-                <th class="px-4 py-2 text-left">Date</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-t">
-                <td class="px-4 py-2">Wallet</td>
-                <td class="px-4 py-2">Personal</td>
-                <td class="px-4 py-2 text-green-500">Found</td>
-                <td class="px-4 py-2">Nov 25, 2024</td>
-              </tr>
-              <tr class="border-t">
-                <td class="px-4 py-2">Keys</td>
-                <td class="px-4 py-2">Household</td>
-                <td class="px-4 py-2 text-blue-500">Lost</td>
-                <td class="px-4 py-2">Nov 23, 2024</td>
-              </tr>
-              <tr class="border-t">
-                <td class="px-4 py-2">Phone</td>
-                <td class="px-4 py-2">Electronics</td>
-                <td class="px-4 py-2 text-green-500">Found</td>
-                <td class="px-4 py-2">Nov 21, 2024</td>
-              </tr>
-            </tbody>
+            
           </table>
         </div>
       </div>

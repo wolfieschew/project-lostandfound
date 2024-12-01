@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+
+// Pastikan pengguna sudah login dan memiliki role admin
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'user') {
+  // Jika tidak, arahkan ke halaman login
+  header("Location: log_in.html");
+  exit;
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -54,10 +66,10 @@
             </li>
             </li>
             <li>
-              <a class="hover:text-gray-500" href="#">Static</a>
+              <a class="hover:text-gray-500" href="static_menu.html">Static</a>
             </li>
             <li>
-              <a class="hover:text-gray-500" href="#">Message</a>
+              <a class="hover:text-gray-500" href="message.html">Message</a>
             </li>
             <li>
               <a class="hover:text-gray-500" href="profile.php">Profile</a>
@@ -349,7 +361,7 @@
               </h2>
               <ul class="text-white font-medium">
                 <li class="mb-4">
-                  <a href="https://flowbite.com/" class="hover:underline"
+                  <a href="#" class="hover:underline"
                     >About Lost and Found Items</a
                   >
                 </li>
@@ -364,21 +376,21 @@
               <ul class="text-white font-medium">
                 <li class="mb-4">
                   <a
-                    href="https://github.com/themesberg/flowbite"
+                    href="#"
                     class="hover:underline"
                     >Lost Items</a
                   >
                 </li>
                 <li>
                   <a
-                    href="https://discord.gg/4eeurUVvTy"
+                    href="#"
                     class="hover:underline"
                     >Found Items</a
                   >
                 </li>
                 <li>
                   <a
-                    href="https://discord.gg/4eeurUVvTy"
+                    href="#"
                     class="hover:underline"
                     >Information about Lost and Found Items</a
                   >

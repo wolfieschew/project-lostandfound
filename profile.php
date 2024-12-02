@@ -132,11 +132,11 @@ try {
         <section class="max-w-5xl mx-auto bg-white rounded-lg shadow-md p-8 mb-6">
     <div class="flex items-center justify-between">
         <div class="flex items-center space-x-4">
-            <img
-                src="https://via.placeholder.com/100"
-                alt="Profile Picture"
-                class="w-24 h-24 object-cover rounded-full"
-            /><span data-modal-target="default-modal-profile" data-modal-toggle="default-modal-profile" class="absolute mt-[6rem] text-white p-[1] border-2 border-[#124076] bg-[#124076] rounded-md cursor-pointer">✎</span>
+        <img
+        src="<?php echo htmlspecialchars($user['profile_picture'] ? 'uploads/' . $user['profile_picture'] : 'https://via.placeholder.com/100'); ?>"
+        alt="Profile Picture"
+        class="w-36 h-36 rounded-full border-2 border-[#124076] shadow-lg object-cover"
+      /><span data-modal-target="default-modal-profile" data-modal-toggle="default-modal-profile" class="absolute mt-[6rem] text-white p-[1] border-2 border-[#124076] bg-[#124076] rounded-md cursor-pointer">✎</span>
 
 
             <!-- Modal untuk Edit Profile -->
@@ -156,26 +156,47 @@ try {
                             </div>
                             <!-- Modal body -->
                             <div class="p-4 md:p-5 space-y-4">  
-                                <form action="" method="POST">
-                                  <div class="flex justify-center items-center ">
-                                    <img
-                                    src="https://via.placeholder.com/100"
-                                    alt="Profile Picture"
-                                    class="w-52 h-52 object-cover rounded-full"/>
-                                </div>
-                                    
-                                    <!-- Modal footer -->
-                                    <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b">
-                                        <input type="hidden" name="user_id"/>
-                                        <button type="submit" class="text-white bg-[#124076] hover:bg-[#255386] font-medium rounded-lg text-sm px-5 py-2.5 text-center">Update</button>
-                                    </div>
-                                </form>
+                            <form action="upload_picture.php" method="POST" enctype="multipart/form-data">
+                            <div class="mb-4 flex justify-center items-center">
+                              <img
+                                src="<?php echo htmlspecialchars($user['profile_picture'] ? 'uploads/' . $user['profile_picture'] : 'https://via.placeholder.com/100'); ?>"
+                                alt="Profile Picture"
+                                class="w-52 h-52 object-cover rounded-full"
+                              />
+                            </div>
+    
+                            <label class="block mb-2 text-sm font-medium text-gray-900" for="file">Upload file</label>
+                            <input
+                              class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50"
+                              id="file"
+                              type="file"
+                              name="profile_picture"
+                              accept="image/*"
+                            />
+
+                            <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user['id']); ?>" />
+                            <div class="flex items-center justify-end mt-4">
+                              <button
+                                type="submit"
+                                class="text-white bg-[#124076] hover:bg-[#255386] font-medium rounded-lg text-sm px-5 py-2.5 mr-6 text-center"
+                              >
+                                Upload
+                              </button>
+                            </div>
+                        </form>
+                        <!-- Tombol Hapus Gambar Profil -->
+                        <form action="delete_profile_picture.php" method="POST">
+                          <input type="hidden" name="user_id" value="<?php echo htmlspecialchars($user['id']); ?>" />
+                          <button type="submit" class="bg-red-100 text-red-600 px-4 py-2 rounded hover:bg-red-200">
+                            Hapus Gambar Profil
+                          </button>
+                        </form>
+
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- End of Modal -->
-
 
             <div>
                 <h2 class="text-2xl font-semibold"><?php echo htmlspecialchars($user['first_name'] . ' ' . $user['last_name']); ?></h2>

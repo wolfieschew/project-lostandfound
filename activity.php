@@ -1,3 +1,8 @@
+<?php 
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -104,8 +109,8 @@
               <div>
                 <h3 class="text-xl font-medium">Tas Ransel</h3>
                 <p class="text-gray-500">Detail Laporan</p>
-                <button class="mt-2 bg-[#124076] text-white py-1 px-4 rounded hover:bg-[#336fb3]">Ubah Status</button>
-                <button class="mt-2 bg-red-100 text-red-700 py-1 px-4 rounded hover:bg-red-200">Hapus Laporan</button>
+                <button data-action="update_status" id="7" class="mt-2 bg-[#124076] text-white py-1 px-4 rounded hover:bg-[#336fb3]">Ubah Status</button>
+                <button data-action="delete" id="8" class="mt-2 bg-red-100 text-red-700 py-1 px-4 rounded hover:bg-red-200">Hapus Laporan</button>
               </div>
             </div>
             <div class="flex flex-col space-y-2 ml-4">
@@ -266,7 +271,6 @@
           </div>
         </div>
       </footer>
-
       <!-- Javascript -->
       <script>
         const navLinks = document.querySelector(".nav-links");
@@ -275,5 +279,55 @@
           navLinks.classList.toggle("top-[11%]");
         }
       </script>
+
+      <!-- JS Ajax -->
+      <script>
+document.addEventListener('DOMContentLoaded', function () {
+    // Event listener for "Ubah Status" buttons
+    document.querySelectorAll('button[data-action="update_status"]').forEach(button => {
+        button.addEventListener('click', function () {
+            const reportId = this.dataset.id;
+            const newStatus = prompt('Enter new status (e.g., Completed, On Going):');
+
+            if (newStatus) {
+                fetch('actions.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'update_status',
+                        id: reportId,
+                        status: newStatus
+                    })
+                })
+                .then(response => response.json())
+                .then(data => alert(data.message))
+                .catch(error => console.error('Error:', error));
+            }
+        });
+    });
+
+    // Event listener for "Hapus Laporan" buttons
+    document.querySelectorAll('button[data-action="delete"]').forEach(button => {
+        button.addEventListener('click', function () {
+            const reportId = this.dataset.id;
+
+            if (confirm('Are you sure you want to delete this report?')) {
+                fetch('actions.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        action: 'delete',
+                        id: reportId
+                    })
+                })
+                .then(response => response.json())
+                .then(data => alert(data.message))
+                .catch(error => console.error('Error:', error));
+            }
+        });
+    });
+});
+</script>
+
   </body>
 </html>

@@ -64,19 +64,25 @@
               <a class="hover:text-gray-500" href="profile.php">Profile</a>
             </li>
             <li>
-              <a class="hover:text-gray-500" href="activity.html">Activity</a>
+              <a class="hover:text-gray-500" href="activity.php">Activity</a>
             </li>
             <li>
-              <a class="hover:text-gray-500 block md:hidden" href="about-us.html">About us</a>
+              <a class="hover:text-gray-500 border-b-4 border-[#124076] pb-2" href="about-us.html">About us</a>
             </li>
           </ul>
         </div>
         <div class="flex items-center gap-6">
           <button
-            class="bg-[#124076] text-white p-4 rounded-md hover:bg-[#87acec] flex items-center md:block hidden"
-          >
-            <a href="about-us.html"><i class="bx bxs-quote-left"></i></a>
-          </button>
+              type="button"
+              class="text-white bg-[#124076] p-2 w-full h-full items-center rounded-[20%]"
+            >
+              <!-- Notification Icon -->
+              <i
+                style="font-size: 1.5rem; padding-left: 0.5rem"
+                class="bx bxs-bell"
+              ></i>
+              <span class="ml-2 text-sm font-medium text-gray-700"></span>
+            </button>
           <ion-icon
             onclick="onToggleMenu(this)"
             name="menu"
